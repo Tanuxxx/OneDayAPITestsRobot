@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.2 (Python 3.5.2 on win32)" generated="20170609 19:38:50.358">
-<suite source="C:\Users\tsaytieva\Documents\Python\OneDayAPITestsRobot\Tests\Authentication.robot" name="Authentication" id="s1">
-<test name="User should be able authenticate with valid credentials" id="s1-t1">
-<kw name="Given User's valid credentials">
-<kw name="Get user's credentials">
+<robot generated="20170616 19:51:37.592" generator="Robot 3.0.2 (Python 3.5.2 on win32)">
+<suite source="C:\Users\tsaytieva\Documents\Python\OneDayAPITestsRobot\Tests\GetCMSDataTests.robot" id="s1" name="GetCMSDataTests">
+<test id="s1-t1" name="Get categories">
+<kw name="Get CMS Data Is Not Empty">
 <arguments>
-<arg>${VALID_USERNAME}</arg>
-<arg>${VALID_PASSWORD}</arg>
+<arg>/api/v2/category/masterlist</arg>
+<arg>${company_community}</arg>
+</arguments>
+<kw library="BuiltIn" name="Convert To String">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${api_url}/${additional_data}</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg level="INFO" timestamp="20170616 19:51:37.746">${url} = /api/v2/category/masterlist/24/595</msg>
+<status status="PASS" endtime="20170616 19:51:37.746" starttime="20170616 19:51:37.746"></status>
+</kw>
+<kw library="SessionVariables&amp;Keywords" name="User Authenticates With Valid Credentials">
+<kw library="SessionVariables&amp;Keywords" name="Get user's credentials">
+<arguments>
+<arg>${valid_username}</arg>
+<arg>${valid_password}</arg>
 </arguments>
 <kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
@@ -17,22 +33,20 @@
 <assign>
 <var>${credentials}</var>
 </assign>
-<msg timestamp="20170609 19:38:50.510" level="INFO">${credentials} = ['d@d.co', 'qqqqqq']</msg>
-<status endtime="20170609 19:38:50.510" starttime="20170609 19:38:50.509" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:37.746">${credentials} = ['d@d.co', 'qqqqqq']</msg>
+<status status="PASS" endtime="20170616 19:51:37.746" starttime="20170616 19:51:37.746"></status>
 </kw>
 <kw library="BuiltIn" name="Set Test Variable">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${credentials}</arg>
 </arguments>
-<msg timestamp="20170609 19:38:50.510" level="INFO">${credentials} = ['d@d.co', 'qqqqqq']</msg>
-<status endtime="20170609 19:38:50.510" starttime="20170609 19:38:50.510" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:37.746">${credentials} = ['d@d.co', 'qqqqqq']</msg>
+<status status="PASS" endtime="20170616 19:51:37.746" starttime="20170616 19:51:37.746"></status>
 </kw>
-<status endtime="20170609 19:38:50.510" starttime="20170609 19:38:50.509" status="PASS"></status>
+<status status="PASS" endtime="20170616 19:51:37.746" starttime="20170616 19:51:37.746"></status>
 </kw>
-<status endtime="20170609 19:38:50.510" starttime="20170609 19:38:50.508" status="PASS"></status>
-</kw>
-<kw name="When User Authenticates With Credentials">
+<kw library="SessionVariables&amp;Keywords" name="User Authenticates With Credentials">
 <arguments>
 <arg>${credentials}</arg>
 </arguments>
@@ -43,8 +57,8 @@
 <arg>${SERVER}</arg>
 <arg>auth=${credentials}</arg>
 </arguments>
-<msg timestamp="20170609 19:38:50.511" level="INFO">Creating Session using : alias=server_session, url=http://cms-st.oneday.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000013E83ACD358&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status endtime="20170609 19:38:50.512" starttime="20170609 19:38:50.511" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:37.746">Creating Session using : alias=server_session, url=http://cms-st.oneday.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000019AF732CE10&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20170616 19:51:37.746" starttime="20170616 19:51:37.746"></status>
 </kw>
 <kw library="RequestsLibrary" name="Post Request">
 <doc>Send a POST request on the session object found using the</doc>
@@ -55,144 +69,117 @@
 <assign>
 <var>${auth_resp}</var>
 </assign>
-<msg timestamp="20170609 19:38:51.087" level="INFO">Post Request using : alias=server_session, uri=/api/v2/authenticate, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20170609 19:38:51.088" level="INFO">${auth_resp} = &lt;Response [200]&gt;</msg>
-<status endtime="20170609 19:38:51.088" starttime="20170609 19:38:50.512" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:38.263">Post Request using : alias=server_session, uri=/api/v2/authenticate, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
+<msg level="INFO" timestamp="20170616 19:51:38.263">${auth_resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:37.746"></status>
 </kw>
 <kw library="BuiltIn" name="Set Test Variable">
 <doc>Makes a variable available everywhere within the scope of the current test.</doc>
 <arguments>
 <arg>${auth_resp}</arg>
 </arguments>
-<msg timestamp="20170609 19:38:51.091" level="INFO">${auth_resp} = &lt;Response [200]&gt;</msg>
-<status endtime="20170609 19:38:51.091" starttime="20170609 19:38:51.089" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:38.263">${auth_resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:38.263"></status>
 </kw>
-<status endtime="20170609 19:38:51.092" starttime="20170609 19:38:50.511" status="PASS"></status>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:37.746"></status>
 </kw>
-<kw name="Then Authentication Should Have Succeded">
+<kw library="BuiltIn" name="Create Dictionary">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Token=${auth_resp.headers['Token']}</arg>
+<arg>TokenExpiry=${auth_resp.headers['TokenExpiry']}</arg>
+<arg>Access-Control-Expose-Headers=${auth_resp.headers['Access-Control-Expose-Headers']}</arg>
+</arguments>
+<assign>
+<var>${auth_user_headers}</var>
+</assign>
+<msg level="INFO" timestamp="20170616 19:51:38.263">${auth_user_headers} = {'Token': 'hZ6csNS54DBZSZUREhyBOyAn/Y4QHxiwyuD0vjxdkpqzPp33/qjHypyW8dLjD9T6IZknfuJIHaHh2Amw1ZqnHehm2makGr+SdKFlJvA/LQoYjX32Bd6vGuVLxIIdF3qKxkWDdtyHVvy5qfr5ohPdsf8/+ClqiD96eBFfsc9yXk/b15Dsa+LpbzT4/cXV0...</msg>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:38.263"></status>
+</kw>
+<kw library="BuiltIn" name="Set Test Variable">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${auth_user_headers}</arg>
+</arguments>
+<msg level="INFO" timestamp="20170616 19:51:38.263">${auth_user_headers} = {'Token': 'hZ6csNS54DBZSZUREhyBOyAn/Y4QHxiwyuD0vjxdkpqzPp33/qjHypyW8dLjD9T6IZknfuJIHaHh2Amw1ZqnHehm2makGr+SdKFlJvA/LQoYjX32Bd6vGuVLxIIdF3qKxkWDdtyHVvy5qfr5ohPdsf8/+ClqiD96eBFfsc9yXk/b15Dsa+LpbzT4/cXV0...</msg>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:38.263"></status>
+</kw>
+<status status="PASS" endtime="20170616 19:51:38.263" starttime="20170616 19:51:37.746"></status>
+</kw>
+<kw name="Request Data From CMS">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw library="RequestsLibrary" name="Get Request">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>server_session</arg>
+<arg>${url}</arg>
+<arg>headers=${auth_user_headers}</arg>
+</arguments>
+<assign>
+<var>${get_categories_response}</var>
+</assign>
+<msg level="INFO" timestamp="20170616 19:51:38.626">Get Request using : alias=server_session, uri=/api/v2/category/masterlist/24/595, headers={'Token': 'hZ6csNS54DBZSZUREhyBOyAn/Y4QHxiwyuD0vjxdkpqzPp33/qjHypyW8dLjD9T6IZknfuJIHaHh2Amw1ZqnHehm2makGr+SdKFlJvA/LQoYjX32Bd6vGuVLxIIdF3qKxkWDdtyHVvy5qfr5ohPdsf8/+ClqiD96eBFfsc9yXk/b15Dsa+LpbzT4/cXV0XwuenGjDP+UQSsceYHszLEs+Qz3VlxQK2FpeGPmXBp0gEEVsvK6IoWivSGNeTJ1e38d4+q0bXI/Zhu3Kz8Ohnam59kwUpQHeCeEUN0KX9ZTlmnu585sx+no0kX81V5lCR45vptaMzadL6ZApOcU4hxNsg==', 'TokenExpiry': '604800', 'Access-Control-Expose-Headers': 'Token,TokenExpiry'} json=None</msg>
+<msg level="INFO" timestamp="20170616 19:51:38.627">${get_categories_response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20170616 19:51:38.627" starttime="20170616 19:51:38.263"></status>
+</kw>
+<kw library="BuiltIn" name="Set Test Variable">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${get_categories_response}</arg>
+</arguments>
+<msg level="INFO" timestamp="20170616 19:51:38.628">${get_categories_response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20170616 19:51:38.629" starttime="20170616 19:51:38.627"></status>
+</kw>
+<status status="PASS" endtime="20170616 19:51:38.629" starttime="20170616 19:51:38.263"></status>
+</kw>
+<kw name="Status Response Is Success">
 <kw library="BuiltIn" name="Should Be Equal As Strings">
 <doc>Fails if objects are unequal after converting them to strings.</doc>
 <arguments>
-<arg>${auth_resp.status_code}</arg>
+<arg>${get_categories_response.status_code}</arg>
 <arg>200</arg>
 </arguments>
-<msg timestamp="20170609 19:38:51.096" level="INFO">Argument types are:
+<msg level="INFO" timestamp="20170616 19:51:38.631">Argument types are:
 &lt;class 'int'&gt;
 &lt;type 'unicode'&gt;</msg>
-<status endtime="20170609 19:38:51.096" starttime="20170609 19:38:51.094" status="PASS"></status>
+<status status="PASS" endtime="20170616 19:51:38.631" starttime="20170616 19:51:38.630"></status>
 </kw>
-<kw library="BuiltIn" name="Should Be Equal As Strings">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:38.629"></status>
+</kw>
+<kw name="Data List Is Not Empty">
+<kw library="BuiltIn" name="Should Not Be Empty">
+<doc>Verifies that the given item is not empty.</doc>
 <arguments>
-<arg>${auth_resp.json()}</arg>
-<arg>Authorized</arg>
+<arg>${get_categories_response.json()}</arg>
 </arguments>
-<status endtime="20170609 19:38:51.099" starttime="20170609 19:38:51.097" status="PASS"></status>
+<msg level="INFO" timestamp="20170616 19:51:38.632">Length is 4</msg>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:38.632"></status>
 </kw>
-<status endtime="20170609 19:38:51.099" starttime="20170609 19:38:51.092" status="PASS"></status>
+<kw library="Library.ValidateJSONSchema" name="Validate Categories JSON Schema">
+<arguments>
+<arg>${get_categories_response.json()}</arg>
+</arguments>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:38.632"></status>
 </kw>
-<doc>Client can authenticate using valid credentials and basic authentication</doc>
-<tags>
-<tag>APIAuthentication</tag>
-</tags>
-<status critical="yes" endtime="20170609 19:38:51.100" starttime="20170609 19:38:50.508" status="PASS"></status>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:38.632"></status>
+</kw>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:37.746"></status>
+</kw>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:37.746" critical="yes"></status>
 </test>
-<test name="User shouldn't be able to authenticate with invalid credentials" id="s1-t2">
-<kw name="Given User's invalid credentials">
-<kw name="Get user's credentials">
-<arguments>
-<arg>${INVALID_USERNAME}</arg>
-<arg>${INVALID_PASSWORD}</arg>
-</arguments>
-<kw library="BuiltIn" name="Create List">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${username}</arg>
-<arg>${password}</arg>
-</arguments>
-<assign>
-<var>${credentials}</var>
-</assign>
-<msg timestamp="20170609 19:38:51.105" level="INFO">${credentials} = ['d@d.com', 'qqqqqq']</msg>
-<status endtime="20170609 19:38:51.105" starttime="20170609 19:38:51.104" status="PASS"></status>
-</kw>
-<kw library="BuiltIn" name="Set Test Variable">
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<arguments>
-<arg>${credentials}</arg>
-</arguments>
-<msg timestamp="20170609 19:38:51.106" level="INFO">${credentials} = ['d@d.com', 'qqqqqq']</msg>
-<status endtime="20170609 19:38:51.106" starttime="20170609 19:38:51.106" status="PASS"></status>
-</kw>
-<status endtime="20170609 19:38:51.107" starttime="20170609 19:38:51.103" status="PASS"></status>
-</kw>
-<status endtime="20170609 19:38:51.107" starttime="20170609 19:38:51.102" status="PASS"></status>
-</kw>
-<kw name="When User Authenticates With Credentials">
-<arguments>
-<arg>${credentials}</arg>
-</arguments>
-<kw library="RequestsLibrary" name="Create Session">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>server_session</arg>
-<arg>${SERVER}</arg>
-<arg>auth=${credentials}</arg>
-</arguments>
-<msg timestamp="20170609 19:38:51.108" level="INFO">Creating Session using : alias=server_session, url=http://cms-st.oneday.com, headers={},                     cookies=None, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000013E83B05240&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status endtime="20170609 19:38:51.109" starttime="20170609 19:38:51.108" status="PASS"></status>
-</kw>
-<kw library="RequestsLibrary" name="Post Request">
-<doc>Send a POST request on the session object found using the</doc>
-<arguments>
-<arg>server_session</arg>
-<arg>/api/v2/authenticate</arg>
-</arguments>
-<assign>
-<var>${auth_resp}</var>
-</assign>
-<msg timestamp="20170609 19:38:51.516" level="INFO">Post Request using : alias=server_session, uri=/api/v2/authenticate, data=&lt;empty&gt;, headers=None, files=None, allow_redirects=True </msg>
-<msg timestamp="20170609 19:38:51.517" level="INFO">${auth_resp} = &lt;Response [401]&gt;</msg>
-<status endtime="20170609 19:38:51.517" starttime="20170609 19:38:51.109" status="PASS"></status>
-</kw>
-<kw library="BuiltIn" name="Set Test Variable">
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<arguments>
-<arg>${auth_resp}</arg>
-</arguments>
-<msg timestamp="20170609 19:38:51.519" level="INFO">${auth_resp} = &lt;Response [401]&gt;</msg>
-<status endtime="20170609 19:38:51.520" starttime="20170609 19:38:51.518" status="PASS"></status>
-</kw>
-<status endtime="20170609 19:38:51.520" starttime="20170609 19:38:51.107" status="PASS"></status>
-</kw>
-<kw name="Then Autentication Should Fail">
-<kw library="BuiltIn" name="Should Be Equal As Strings">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>${auth_resp.status_code}</arg>
-<arg>401</arg>
-</arguments>
-<msg timestamp="20170609 19:38:51.523" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;type 'unicode'&gt;</msg>
-<status endtime="20170609 19:38:51.523" starttime="20170609 19:38:51.522" status="PASS"></status>
-</kw>
-<status endtime="20170609 19:38:51.524" starttime="20170609 19:38:51.521" status="PASS"></status>
-</kw>
-<status critical="yes" endtime="20170609 19:38:51.524" starttime="20170609 19:38:51.101" status="PASS"></status>
-</test>
-<status endtime="20170609 19:38:51.525" starttime="20170609 19:38:50.360" status="PASS"></status>
+<status status="PASS" endtime="20170616 19:51:38.632" starttime="20170616 19:51:37.592"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="2">Critical Tests</stat>
-<stat fail="0" pass="2">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">APIAuthentication</stat>
 </tag>
 <suite>
-<stat fail="0" pass="2" id="s1" name="Authentication">Authentication</stat>
+<stat id="s1" pass="1" fail="0" name="GetCMSDataTests">GetCMSDataTests</stat>
 </suite>
 </statistics>
 <errors>
